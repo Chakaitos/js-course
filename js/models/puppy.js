@@ -33,6 +33,9 @@
     this.castVote = function (id) {
       var index = getIdIndexOf(puppies, id);
       var puppy = puppies[index];
+      if (!puppy.votes) {
+        puppy.votes = 0;
+      };
       puppy.votes += 1;
       // this tells the presenter - Hey! This add thing just happened in the model
       this.trigger("vote-cast", puppy);
